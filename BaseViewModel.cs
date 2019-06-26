@@ -31,7 +31,7 @@ namespace CollectionViewMySample.ViewModel
              new User{Id=4, UserFirstName="John", UserLastName="Stark", Color="White" }
             };
 
-            ActiveUser = UserList[3];
+            ActiveUser = UserList[3]; // TODO: ScrollTo ActiveUser
         }
 
         public void Swipe ()
