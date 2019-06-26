@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectionViewMySample.View.UserPage">
+    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Khaki" >
+
+            <CollectionView x:Name="collectionView"
+                ItemsSource="{Binding UserList}" 
+                HeightRequest="200"
+                ItemSizingStrategy="MeasureFirstItem"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Start"
+                SelectionChangedCommand="{Binding Swipe}"
+                            >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" SnapPointsAlignment="Center" SnapPointsType="MandatorySingle"  Span="1">
+                    </GridItemsLayout>                
+                </CollectionView.ItemsLayout>
+<!--User Data-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="{Binding Color}" Spacing="0" VerticalOptions="FillAndExpand" >
+                        <Frame  CornerRadius="10" OutlineColor="White" HasShadow="False" Padding="5" Margin="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" BackgroundColor="WhiteSmoke" Padding="10">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Text="FIRST NAME:" FontSize="Small" HorizontalOptions="Start" VerticalOptions="Start" TextColor="Tomato" BackgroundColor="Transparent" />
+                                        <Label Text="{Binding UserFirstName}" FontSize="Small" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="Transparent"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Text="LAST NAME:" FontSize="Small" HorizontalOptions="Start" TextColor="Tomato" BackgroundColor="Transparent"
+                                        />
+                                        <Label Text="{Binding UserLastName}" FontSize="Small" HorizontalOptions="Start" BackgroundColor="Transparent" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+<!--User Details-->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+            <Label  Text="{Binding Id}" FontSize="Medium" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
