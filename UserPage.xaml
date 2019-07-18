@@ -10,7 +10,10 @@
                 ItemSizingStrategy="MeasureFirstItem"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Start"
-                SelectionChangedCommand="{Binding Swipe}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding ActiveUser,Mode=TwoWay}"
+                        SelectionChangedCommand="{Binding SelectionChangedCommand}"
+                        SelectionChangedCommandParameter="{Binding ActiveUser}"
                             >
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Horizontal" SnapPointsAlignment="Center" SnapPointsType="MandatorySingle"  Span="1">
