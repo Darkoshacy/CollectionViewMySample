@@ -19,10 +19,15 @@ namespace CollectionViewMySample.ViewModel
         private User _activeUser;
         private List<User> _userList = new List<User>();
 
-        public ICommand SelectionChangedCommand => new Command(Swipe);
+        public ICommand SelectionChangedCommand { get; set; }
 
         public BaseViewModel()
         {
+            SelectionChangedCommand = new Command((object parametar)=> {
+
+                var c = parametar; //do something with c
+            });
+            
             UserList = new List<User>()
             {
              new User{Id=1, UserFirstName="Darko", UserLastName="Darkic", Color="Blue" } ,
@@ -34,10 +39,6 @@ namespace CollectionViewMySample.ViewModel
             ActiveUser = UserList[3]; // TODO: ScrollTo ActiveUser
         }
 
-        public void Swipe ()
-        {
-            //Set ActiveUser to SelectedItem
-        }
         public int Id { get; set; }
 
         public string Color { get; private set; }
